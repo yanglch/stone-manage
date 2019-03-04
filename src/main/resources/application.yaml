@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://localhost:3306/stone_manage?serverTimezone=UTC&useSSL=true"
+    username: root
+    password: ""
+    druid:
+      initial-size: 10
+      max-wait: 6000
+      min-idle: 10
+      max-active: 100
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 30000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 50
+      filters: start,wall
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+      connection-error-retry-attempts: 3
+      not-full-timeout-retry-count: 3
+      stat-view-servlet:
+        login-username: ylc
+        login-password: 5233
+        url-pattern: /ylcDruid/*
+  freemarker:
+    template-loader-path: classpath:/public/templates/
+    cache: false
+mybatis:
+  mapper-locations: classpath*:sqlmap/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+server:
+  port: 80

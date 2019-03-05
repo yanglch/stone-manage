@@ -20,7 +20,6 @@
                 <tr class="text-danger">
                     <th class="text-center">编号</th>
                     <th class="text-center">商品</th>
-                    <th class="text-center">价格</th>
                     <th class="text-center">产品类型</th>
                     <th class="text-center">状态</th>
                     <th class="text-center">操作</th>
@@ -30,7 +29,6 @@
                 <tr>
                     <td>1</td>
                     <td>手机</td>
-                    <td>1999</td>
                     <td>电子产品</td>
                     <td>有效商品</td>
                     <td class="text-center">
@@ -40,7 +38,6 @@
                 <tr>
                     <td>1</td>
                     <td>平板</td>
-                    <td>2999</td>
                     <td>电子产品</td>
                     <td>有效商品</td>
                     <td class="text-center">

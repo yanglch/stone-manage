@@ -22,6 +22,9 @@ public class MvcTemplateInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object obj, ModelAndView modelAndView)
             throws Exception {
+        if(request.getRequestURL() != null && request.getRequestURL().toString().endsWith("login.htm")){
+            return;
+        }
         request.setAttribute("viewName", modelAndView.getViewName());
         modelAndView.setViewName("index");
     }

@@ -4,6 +4,8 @@
  */
 package com.trumpeted.stone.manage.biz.shared.service;
 
+import com.trumpeted.stone.manage.biz.shared.vo.UserVo;
+
 /**
  *
  * @author ylc
@@ -11,5 +13,11 @@ package com.trumpeted.stone.manage.biz.shared.service;
  */
 public interface UserService {
 
+    /**
+     * 根据登录名获取用户
+     * @param loginName
+     * @return
+     */
+    UserVo getUser(String loginName);
 
 }

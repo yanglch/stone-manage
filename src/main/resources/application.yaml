@@ -31,6 +31,5 @@ mybatis:
   mapper-locations: classpath*:sqlmap/*Mapper.xml
   configuration:
     map-underscore-to-camel-case: true
-
 server:
   port: 80

@@ -4,8 +4,13 @@
  */
 package com.trumpeted.stone.manage.biz.shared.service.impl;
 
+import com.trumpeted.stone.manage.biz.shared.convert.CommonConvert;
 import com.trumpeted.stone.manage.biz.shared.service.UserService;
+import com.trumpeted.stone.manage.biz.shared.vo.UserVo;
+import com.trumpeted.stone.manage.common.dal.dao.SysUserDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 /**
  *
@@ -15,5 +20,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
+    @Autowired
+    private SysUserDao sysUserDao;
 
+    @Override
+    public UserVo getUser(String loginName) {
+        Assert.hasText(loginName, "login name can not empty");
+        return CommonConvert.toVo(sysUserDao.findByLoginName(loginName), UserVo.class);
+    }
 }

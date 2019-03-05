@@ -4,10 +4,14 @@
  */
 package com.trumpeted.stone.manage.biz.shared.service;
 
+import com.trumpeted.stone.manage.biz.shared.vo.RoleVo;
+
 /**
  *
  * @author ylc
  * @version $Id: RoleServiceImpl.java, v 0.1 2019年03月04日 23:55 ylc Exp $
  */
 public interface RoleService {
+
+    RoleVo getRole(long roleId);
 }

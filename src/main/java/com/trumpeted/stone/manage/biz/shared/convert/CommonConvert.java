@@ -40,6 +40,9 @@ public class CommonConvert {
     }
 
     private static <D, V> D convert(V vo, Class<D> doClass){
+        if(vo == null){
+            return null;
+        }
         D doObj = BeanUtils.instantiateClass(doClass);
         BeanUtils.copyProperties(vo, doObj);
         return doObj;

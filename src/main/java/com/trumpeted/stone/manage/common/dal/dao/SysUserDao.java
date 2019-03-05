@@ -14,6 +14,9 @@ public interface SysUserDao{
     @Select("select * from sys_user where id = #{id}")
     SysUserDo findById(@Param("id") long id);
 
+    @Select("select * from sys_user where login_name = #{loginName}")
+    SysUserDo findByLoginName(@Param("loginName") String loginName);
+
     @Select("select * from sys_user order by gmt_modifier desc limit #{startNo},#{pageSize}")
     List<SysUserDo> findByPage(@Param("startNo") int startNo, @Param("pageSize") int pageSize);
 

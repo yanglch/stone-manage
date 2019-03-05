@@ -7,8 +7,6 @@ package com.trumpeted.stone.manage.web.home.controller;
 import com.trumpeted.stone.manage.biz.shared.convert.CommonConvert;
 import com.trumpeted.stone.manage.biz.shared.service.StoneTypeService;
 import com.trumpeted.stone.manage.biz.shared.vo.StoneTypeVo;
-import com.trumpeted.stone.manage.biz.shared.vo.StoneVo;
-import com.trumpeted.stone.manage.web.home.model.StoneModel;
 import com.trumpeted.stone.manage.web.home.model.StoneTypeModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +30,7 @@ public class StoneTypeController {
     @GetMapping("/query_all")
     @ResponseBody
     public Object queryAll(){
+
         return stoneTypeService.queryAll();
     }
 
@@ -39,6 +38,7 @@ public class StoneTypeController {
     @ResponseBody
     public Object add(StoneTypeModel stoneTypeModel){
         stoneTypeService.add(CommonConvert.toVo(stoneTypeModel, StoneTypeVo.class));
+
         return null;
     }
 
@@ -51,6 +51,7 @@ public class StoneTypeController {
 
     @GetMapping("/view.htm")
     public String view(){
+
         return "";//TODO 产品类型页面
     }
 

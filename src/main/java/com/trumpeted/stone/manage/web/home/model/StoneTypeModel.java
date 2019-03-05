@@ -23,8 +23,6 @@ public class StoneTypeModel implements Serializable {
 
     private String name;
 
-    private String code;
-
     private Date gmtModifier;
 
     private Date gmtCreated;

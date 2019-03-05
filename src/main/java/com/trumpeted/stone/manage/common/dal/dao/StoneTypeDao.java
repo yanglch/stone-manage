@@ -29,11 +29,11 @@ public interface StoneTypeDao {
     @Select("select count(1) from stone_type")
     long count();
 
-    @Insert("insert into stone_type(name, code, gmt_modifier, gmt_created)"
-            + " values(#{stoneType.name}, #{stoneType.code}, now(), now())")
+    @Insert("insert into stone_type(name, gmt_modifier, gmt_created)"
+            + " values(#{stoneType.name}, now(), now())")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(@Param("stoneType") StoneTypeDo stoneTypeDo);
 
-    @Update("update stone_type set name=#{stoneType.name}, code=#{stoneType.code}, gmt_modifier=now() where id = #{stoneType.id}")
+    @Update("update stone_type set name=#{stoneType.name}, gmt_modifier=now() where id = #{stoneType.id}")
     int updateById(@Param("stoneType") StoneTypeDo stoneTypeDo);
 }

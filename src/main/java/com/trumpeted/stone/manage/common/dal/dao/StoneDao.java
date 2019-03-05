@@ -5,12 +5,7 @@
 package com.trumpeted.stone.manage.common.dal.dao;
 
 import com.trumpeted.stone.manage.common.dal.dataobject.StoneDo;
-import com.trumpeted.stone.manage.common.dal.dataobject.StoneTypeDo;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -33,11 +28,11 @@ public interface StoneDao {
     @Select("select count(1) from stone")
     long count();
 
-    @Insert("insert into stone(name, type_code, gmt_modifier, gmt_created)"
+    @Insert("insert into stone(name, gmt_modifier, gmt_created)"
             + " values(#{stone.name}, #{stone.typeCode}, now(), now())")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(@Param("stone") StoneDo stoneDo);
 
-    @Update("update stone set name=#{stone.name}, type_code=#{stone.typeCode}, gmt_modifier=now() where id = #{stone.id}")
+    @Update("update stone set name=#{stone.name}, gmt_modifier=now() where id = #{stone.id}")
     int updateById(@Param("stone") StoneDo stoneDo);
 }

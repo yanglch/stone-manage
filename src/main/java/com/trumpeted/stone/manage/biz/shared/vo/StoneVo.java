@@ -23,6 +23,8 @@ public class StoneVo implements Serializable {
 
     private String name;
 
+    private Long typeId;
+
     private Date gmtModifier;
 
     private Date gmtCreated;

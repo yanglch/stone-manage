@@ -1,3 +1,3 @@
-<div style="height: 30px;background-color: antiquewhite">
-    通用页尾
+<div class="footer">
+    版权所有：以后添加
 </div>

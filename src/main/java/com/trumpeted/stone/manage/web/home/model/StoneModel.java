@@ -21,6 +21,8 @@ public class StoneModel implements Serializable {
 
     private Long id;
 
+    private Long typeId;
+
     private String name;
 
     private Date gmtModifier;

@@ -4,7 +4,9 @@
  */
 package com.trumpeted.stone.manage.web.home.controller;
 
+import com.trumpeted.stone.manage.biz.shared.convert.CommonConvert;
 import com.trumpeted.stone.manage.biz.shared.service.UserService;
+import com.trumpeted.stone.manage.biz.shared.vo.UserVo;
 import com.trumpeted.stone.manage.web.home.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,10 +47,16 @@ public class UserController {
         return null;
     }
 
+    @PostMapping("delete")
+    @ResponseBody
+    public Object delete(long userId){
+        return userService.deleteUser(userId);
+    }
+
     @PostMapping("insert")
     @ResponseBody
     public Object insert(UserModel user){
-        return null;
+        return userService.addUser(CommonConvert.toVo(user, UserVo.class));
     }
 
     @GetMapping("view.htm")

@@ -1,6 +1,7 @@
 package com.trumpeted.stone.manage.common.dal.dao;
 
 import com.trumpeted.stone.manage.common.dal.dataobject.SysUserDo;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
@@ -23,12 +24,15 @@ public interface SysUserDao{
     @Select("select count(1) from sys_user")
     long count();
 
-    @Insert("insert into sys_user(real_name, login_name, pass_word, salt, role_id, permission_id, gmt_modifier, gmt_created)"
-            + " values(#{user.realName}, #{user.loginName}, #{user.passWord}, #{user.salt}, #{user.roleId}, #{user.permissionId}, now(), now())")
+    @Insert("insert into sys_user(real_name, login_name, pass_word, role_id, permission_id, gmt_modifier, gmt_created)"
+            + " values(#{user.realName}, #{user.loginName}, #{user.passWord}, #{user.roleId}, #{user.permissionId}, now(), now())")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(@Param("user") SysUserDo userDo);
 
-    @Update("update sys_user set real_name=#{realName}, login_name=#{loginName}, pass_word=#{passWord}, salt=#{salt}, "
+    @Delete("delete from sys_user where id = #{id}")
+    int delete(long id);
+
+    @Update("update sys_user set real_name=#{realName}, login_name=#{loginName}, pass_word=#{passWord},"
             + "role_id=#{roleId}, permission_id=#{permissionId}, gmt_modifier=now()")
     int updateById();
 }

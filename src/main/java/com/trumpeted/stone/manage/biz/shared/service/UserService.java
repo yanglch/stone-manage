@@ -5,6 +5,7 @@
 package com.trumpeted.stone.manage.biz.shared.service;
 
 import com.trumpeted.stone.manage.biz.shared.vo.UserVo;
+import com.trumpeted.stone.manage.common.utils.CommonResult;
 
 import java.util.List;
 
@@ -22,7 +23,24 @@ public interface UserService {
      */
     UserVo getUser(String loginName);
 
-
+    /**
+     * 查询所有用户
+     * @return
+     */
     List<UserVo> getUserAll();
+
+    /**
+     * 新增用户
+     * @param userVo
+     * @return
+     */
+    CommonResult addUser(UserVo userVo);
+
+    /**
+     * 删除用户
+     * @param userId
+     * @return
+     */
+    CommonResult deleteUser(long userId);
 
 }

@@ -8,9 +8,8 @@ $(function(){
 
     });
 
- // 用户管理修改模态框
+    // 用户管理修改模态框
     $(".doModify").on("click", function() {
-        _this = this; //this是事件源
         $("#myModal").modal("show");
     });
 
@@ -80,7 +79,6 @@ $(function(){
 
     // 商品管理 添加商品
     $("#doAddPro").on("click", function() {
-        _this = this; //this是事件源
         $("#Product").modal("show");
     });
 

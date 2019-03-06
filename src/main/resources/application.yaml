@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: "jdbc:mysql://localhost:3306/stone_manage?serverTimezone=UTC&useSSL=true"
+    url: "jdbc:mysql://47.105.86.124:3306/stone_manage?serverTimezone=UTC&useSSL=false"
     username: root
-    password: "123456"
+    password: "111111"
     druid:
       initial-size: 10
       max-wait: 6000

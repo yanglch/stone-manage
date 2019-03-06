@@ -28,9 +28,9 @@
                 <tbody id="tb">
                 <#list stoneVoList as stone>
                     <tr>
-                        <td>${stone.id}</td>
-                        <td>${stone.name}</td>
-                        <td>${stone.typeId}</td>
+                        <td>${stone.id!}</td>
+                        <td>${stone.name!}</td>
+                        <td>${stone.typeId!}</td>
                         <td>有效商品</td>
                         <td class="text-center">
                             <input type="button" class="btn btn-warning btn-sm doProModify" value="修改">

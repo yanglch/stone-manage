@@ -31,4 +31,10 @@ public interface StoneService {
      * 修改产品
      */
     void update(StoneVo stoneVo);
+
+
+    /**
+     * 查询所有石材类型
+     */
+    List<StoneVo> selectAll();
 }

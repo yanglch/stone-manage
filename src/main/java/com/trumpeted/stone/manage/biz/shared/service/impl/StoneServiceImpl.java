@@ -6,7 +6,6 @@ package com.trumpeted.stone.manage.biz.shared.service.impl;
 
 import com.trumpeted.stone.manage.biz.shared.convert.CommonConvert;
 import com.trumpeted.stone.manage.biz.shared.service.StoneService;
-import com.trumpeted.stone.manage.biz.shared.vo.StoneTypeVo;
 import com.trumpeted.stone.manage.biz.shared.vo.StoneVo;
 import com.trumpeted.stone.manage.common.dal.dao.StoneDao;
 import com.trumpeted.stone.manage.common.dal.dataobject.StoneDo;
@@ -45,4 +44,13 @@ public class StoneServiceImpl implements StoneService {
         StoneDo stoneDo = CommonConvert.toDo(stoneVo, StoneDo.class);
         stoneDao.updateById(stoneDo);
     }
+
+    @Override
+    public List<StoneVo> selectAll() {
+
+
+        return CommonConvert.toVoList(stoneDao.selectAll(), StoneVo.class);
+    }
+
+
 }

@@ -8,10 +8,10 @@
 <script src="../js/userSetting.js"></script>
 <div class="panel panel-default" id="userPic">
     <div class="panel-heading">
-        <h3 class="panel-title">商品管理</h3>
+        <h3 class="panel-title">石材管理</h3>
     </div>
     <div class="panel-body">
-        <input type="button" value="添加商品" class="btn btn-primary" id="doAddPro">
+        <input type="button" value="添加石材" class="btn btn-primary" id="doAddPro">
         <br>
         <br>
         <div class="show-list">
@@ -26,24 +26,17 @@
                 </tr>
                 </thead>
                 <tbody id="tb">
-                <tr>
-                    <td>1</td>
-                    <td>手机</td>
-                    <td>电子产品</td>
-                    <td>有效商品</td>
-                    <td class="text-center">
-                        <input type="button" class="btn btn-warning btn-sm doProModify" value="修改">
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>平板</td>
-                    <td>电子产品</td>
-                    <td>有效商品</td>
-                    <td class="text-center">
-                        <input type="button" class="btn btn-warning btn-sm doProModify" value="修改">
-                    </td>
-                </tr>
+                <#list stoneVoList as stone>
+                    <tr>
+                        <td>${stone.id}</td>
+                        <td>${stone.name}</td>
+                        <td>${stone.typeId}</td>
+                        <td>有效商品</td>
+                        <td class="text-center">
+                            <input type="button" class="btn btn-warning btn-sm doProModify" value="修改">
+                        </td>
+                    </tr>
+                </#list>
                 </tbody>
             </table>
         </div>
@@ -68,12 +61,6 @@
                             <label for="product-name" class="col-sm-4 control-label">商品名称：</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" id="product-name">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="product-price" class="col-sm-4 control-label">商品价格：</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="product-price">
                             </div>
                         </div>
                         <div class="form-group">

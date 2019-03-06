@@ -4,8 +4,9 @@
  */
 package com.trumpeted.stone.manage.biz.shared.service;
 
+import com.trumpeted.stone.manage.biz.shared.Exception.StoneTypeException;
 import com.trumpeted.stone.manage.biz.shared.vo.StoneTypeVo;
-import com.trumpeted.stone.manage.biz.shared.vo.StoneVo;
+import com.trumpeted.stone.manage.common.dal.dataobject.StoneTypeDo;
 
 import java.util.List;
 
@@ -25,10 +26,18 @@ public interface StoneTypeService {
     /**
      * 添加产品类型
      */
-    void add(StoneTypeVo stoneTypeVo);
+    void add(String name) throws StoneTypeException;
 
     /**
      * 修改产品类型
      */
     void update(StoneTypeVo stoneTypeVo);
+
+    List<StoneTypeVo> findAll();
+
+    StoneTypeDo findById(int id);
+
+    void modifyName(int id, String name) throws StoneTypeException;
+
+    void modifyStatus(int id);
 }

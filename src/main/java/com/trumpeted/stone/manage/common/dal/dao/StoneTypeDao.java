@@ -4,12 +4,9 @@
  */
 package com.trumpeted.stone.manage.common.dal.dao;
 
+import com.trumpeted.stone.manage.biz.shared.vo.StoneTypeVo;
 import com.trumpeted.stone.manage.common.dal.dataobject.StoneTypeDo;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -29,11 +26,27 @@ public interface StoneTypeDao {
     @Select("select count(1) from stone_type")
     long count();
 
-    @Insert("insert into stone_type(name, gmt_modifier, gmt_created)"
-            + " values(#{stoneType.name}, now(), now())")
+
+    @Insert("insert into stone_type(name,status, gmt_modifier, gmt_created)"
+            + " values(#{name},#{status}, now(), now())")
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    int insert(@Param("stoneType") StoneTypeDo stoneTypeDo);
+    int insert(StoneTypeDo stoneTypeDo);
 
     @Update("update stone_type set name=#{stoneType.name}, gmt_modifier=now() where id = #{stoneType.id}")
     int updateById(@Param("stoneType") StoneTypeDo stoneTypeDo);
+
+    @Select("select * from stone_type")
+    List<StoneTypeVo> selectAll();
+
+    @Select("select * from stone_type where name =#{name}")
+    StoneTypeDo selectByName(String name);
+
+    @Select("select * from stone_type where id =#{id}")
+    StoneTypeDo selectById(int id);
+
+    @Update("update stone_type set name=#{name} where id=#{id}")
+    void updateName(int id, String name);
+
+    @Update("update stone_type set status=#{status} where id=#{id}")
+    void updateStatus(int id, int status);
 }

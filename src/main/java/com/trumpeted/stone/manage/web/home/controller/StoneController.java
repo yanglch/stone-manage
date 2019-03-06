@@ -10,7 +10,10 @@ import com.trumpeted.stone.manage.biz.shared.vo.StoneVo;
 import com.trumpeted.stone.manage.web.home.model.StoneModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  *
@@ -44,10 +47,11 @@ public class StoneController {
         return null;
     }
 
+
     @GetMapping("view.htm")
-    public String view(){
-
-
+    public String view(Model model){
+        List<StoneVo> stoneVoList = stoneService.selectAll();
+        model.addAttribute("stoneVoList",stoneVoList);
         return "stone/stoneList";
     }
 }

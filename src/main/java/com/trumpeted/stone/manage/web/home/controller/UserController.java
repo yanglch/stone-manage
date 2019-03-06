@@ -5,6 +5,7 @@
 package com.trumpeted.stone.manage.web.home.controller;
 
 import com.trumpeted.stone.manage.biz.shared.convert.CommonConvert;
+import com.trumpeted.stone.manage.biz.shared.service.FileUploadService;
 import com.trumpeted.stone.manage.biz.shared.service.UserService;
 import com.trumpeted.stone.manage.biz.shared.vo.UserVo;
 import com.trumpeted.stone.manage.web.home.model.UserModel;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -66,5 +69,7 @@ public class UserController {
     }
 
 
+    @Autowired
+    private FileUploadService fileUploadService;
 
 }

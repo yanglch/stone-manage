@@ -53,7 +53,7 @@
                 if (result.status==1){
                     $('#pro-num').val(result.data.id);
                     $('#pro-name').val(result.data.name);
-                    $('#pro-TypeId').val(result.data)
+                    $('#pro-TypeId').val(result.data.typeId)
                 }
             }
         );

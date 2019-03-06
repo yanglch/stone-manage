@@ -25,7 +25,7 @@ public class StoneDo implements Serializable {
     private String name;
     private String image;
     private StoneTypeDo stoneTypeDo;
-
+    private Long typeId;
     private Date gmtModifier;
 
     private Date gmtCreated;

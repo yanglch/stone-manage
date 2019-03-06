@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace=" com.trumpeted.stone.manage.common.dal.dao.StoneDao">
-    <resultMap id="stoneMap" type="com.trumpeted.stone.manage.common.dal.dataobject.StoneDo">
+<mapper namespace="com.trumpeted.stone.manage.common.dal.dao.StoneDao">
+    <resultMap id="stoneMap" type="StoneDo">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="image" column="image"/>
         <result property="gmtModifier" column="gmt_modifier"/>
         <result property="gmtCreated" column="gmt_created"/>
-        <association property="StoneTypeDo" javaType="StoneTypeDo" column="type_id">
+        <association property="stoneTypeDo" javaType="StoneTypeDo" column="type_id">
             <id property="id" column="sp.id"/>
             <result property="name" column="sp.name"/>
             <result property="status" column="sp.status"/>

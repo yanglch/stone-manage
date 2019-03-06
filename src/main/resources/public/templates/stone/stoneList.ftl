@@ -44,6 +44,20 @@
         });
 
     });
+
+    function showStone(id) {
+        $.post(
+            '/stone/findById',
+            {'id':id},
+            function (result) {
+                if (result.status==1){
+                    $('#pro-num').val(result.data.id);
+                    $('#pro-name').val(result.data.name);
+                    $('#pro-TypeId').val(result.data)
+                }
+            }
+        );
+    }
     
 </script>
 <div class="panel panel-default" id="userPic">
@@ -72,14 +86,10 @@
                         <td>${stone.name}</td>
                         <td>${stone.stoneTypeDo.name}</td>
                         <td>
-                            <#if stone.stoneTypeDo.status==1>
-                                有效石材
-                            <#else >
-                                无效石材
-                            </#if>
+                            有效
                         </td>
                         <td class="text-center">
-                            <input type="button" class="btn btn-warning btn-sm doProModify" value="修改">
+                            <input type="button" class="btn btn-warning btn-sm doProModify" value="修改" onclick="showStone(${stone.id})">
                         </td>
                     </tr>
                 </#list>
@@ -171,12 +181,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="pro-price" class="col-sm-4 control-label">商品价格：</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="pro-price">
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label for="pro-image" class="col-sm-4 control-label">商品图片：</label>
                             <div class="col-sm-8">
                                 <a class="file">
@@ -187,8 +191,8 @@
                         <div class="form-group">
                             <label for="product-type" class="col-sm-4 control-label">商品类型：</label>
                             <div class="col-sm-8">
-                                <select class="form-control">
-                                    <option>--请选择--</option>
+                                <select class="form-control" id="pro-TypeId">
+                                    <option value="">--请选择--</option>
                                     <#list StoneTypeDos as stoneTypeDo>
                                         <option value="${stoneTypeDo.id}">${stoneTypeDo.name}</option>
                                     </#list>

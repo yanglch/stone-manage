@@ -38,4 +38,6 @@ public interface StoneService {
      * 查询所有石材类型
      */
     List<StoneDo> selectAll();
+
+    StoneDo findById(int id);
 }

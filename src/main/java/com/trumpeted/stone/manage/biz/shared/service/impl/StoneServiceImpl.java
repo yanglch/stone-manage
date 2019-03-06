@@ -52,5 +52,11 @@ public class StoneServiceImpl implements StoneService {
         return stoneDao.selectAll();
     }
 
+    @Override
+    public StoneDo findById(int id) {
+
+        return stoneDao.selectById(id);
+    }
+
 
 }

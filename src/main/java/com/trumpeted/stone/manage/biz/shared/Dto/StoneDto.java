@@ -11,8 +11,5 @@ import java.io.Serializable;
  */
 @Data
 public class StoneDto implements Serializable {
-    private Integer id;
-    private String name;
-    private String image;
-    private Integer stoneTypeId;
+
 }

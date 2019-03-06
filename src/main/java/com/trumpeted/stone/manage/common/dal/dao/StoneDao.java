@@ -37,4 +37,7 @@ public interface StoneDao {
 
     @Update("update stone set name=#{stone.name},type_id=#{stone.typeId}, gmt_modifier=now() where id = #{stone.id}")
     int updateById(@Param("stone") StoneDo stoneDo);
+
+    @Select("select * from stone where id=#{id}")
+    StoneDo selectById(int id);
 }

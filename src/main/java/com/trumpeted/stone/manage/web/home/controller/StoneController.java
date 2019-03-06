@@ -9,6 +9,7 @@ import com.trumpeted.stone.manage.biz.shared.service.StoneService;
 import com.trumpeted.stone.manage.biz.shared.service.StoneTypeService;
 import com.trumpeted.stone.manage.biz.shared.vo.StoneVo;
 import com.trumpeted.stone.manage.common.dal.dataobject.StoneDo;
+import com.trumpeted.stone.manage.utils.ResponseResult;
 import com.trumpeted.stone.manage.web.home.model.StoneModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,5 +65,12 @@ public class StoneController {
     public List<StoneDo> loadStoneTypes(){
         List<StoneDo> stoneDos=stoneTypeService.findEnable();
         return stoneDos;
+    }
+    @PostMapping("findById")
+    @ResponseBody
+    public ResponseResult findById(int id){
+        StoneDo byId = stoneService.findById(id);
+
+        return ResponseResult.success(byId);
     }
 }

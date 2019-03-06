@@ -40,6 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/stone/type/view.htm", true)
                 .permitAll()
                 .and()
+                .logout()
+                .logoutSuccessUrl("/login.htm")
+                .and()
                 .csrf()
                 .disable()
                 .httpBasic();

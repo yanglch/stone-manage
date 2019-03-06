@@ -26,8 +26,6 @@ public class SysUserDo implements Serializable {
 
     private String passWord;
 
-    private String salt;
-
     private String roleId;
 
     private String permissionId;

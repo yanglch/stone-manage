@@ -61,7 +61,7 @@ public class StoneUserService implements UserDetailsService {
                     });
         }
 
-        return new User(userVo.getLoginName(), userVo.getPassWord(), authorities);
+        return new MyUser(userVo.getRealName(), userVo.getLoginName(), userVo.getPassWord(), authorities);
     }
 
     private void addAuthorties(List<GrantedAuthority> authorities, String authorties) {

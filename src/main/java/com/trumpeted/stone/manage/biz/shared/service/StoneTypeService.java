@@ -6,6 +6,7 @@ package com.trumpeted.stone.manage.biz.shared.service;
 
 import com.trumpeted.stone.manage.biz.shared.Exception.StoneTypeException;
 import com.trumpeted.stone.manage.biz.shared.vo.StoneTypeVo;
+import com.trumpeted.stone.manage.common.dal.dataobject.StoneDo;
 import com.trumpeted.stone.manage.common.dal.dataobject.StoneTypeDo;
 
 import java.util.List;
@@ -40,4 +41,7 @@ public interface StoneTypeService {
     void modifyName(int id, String name) throws StoneTypeException;
 
     void modifyStatus(int id);
+
+    List<StoneDo> findEnable();
+
 }

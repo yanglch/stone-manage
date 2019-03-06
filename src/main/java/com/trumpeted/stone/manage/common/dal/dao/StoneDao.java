@@ -24,7 +24,7 @@ public interface StoneDao {
     @Select("select * from stone order by gmt_modifier desc limit #{startNo},#{pageSize}")
     List<StoneDo> findByPage(@Param("startNo") int startNo, @Param("pageSize") int pageSize);
 
-    @Select("select * from stone")
+
     List<StoneDo> selectAll();
 
     @Select("select count(1) from stone")

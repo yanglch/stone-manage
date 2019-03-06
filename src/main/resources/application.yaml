@@ -29,7 +29,7 @@ spring:
     cache: false
 mybatis:
   mapper-locations: classpath*:sqlmap/*Mapper.xml
-  typeAliasesPackage: com.trumpeted.stone.manage.common.dal.dataobject.*
+  typeAliasesPackage: com.trumpeted.stone.manage.common.dal.dataobject
   configuration:
     map-underscore-to-camel-case: true
 server:

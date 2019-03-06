@@ -5,6 +5,7 @@
 package com.trumpeted.stone.manage.biz.shared.service;
 
 import com.trumpeted.stone.manage.biz.shared.vo.StoneVo;
+import com.trumpeted.stone.manage.common.dal.dataobject.StoneDo;
 
 import java.util.List;
 
@@ -36,5 +37,5 @@ public interface StoneService {
     /**
      * 查询所有石材类型
      */
-    List<StoneVo> selectAll();
+    List<StoneDo> selectAll();
 }

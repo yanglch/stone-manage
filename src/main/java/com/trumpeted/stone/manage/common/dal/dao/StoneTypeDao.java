@@ -5,6 +5,7 @@
 package com.trumpeted.stone.manage.common.dal.dao;
 
 import com.trumpeted.stone.manage.biz.shared.vo.StoneTypeVo;
+import com.trumpeted.stone.manage.common.dal.dataobject.StoneDo;
 import com.trumpeted.stone.manage.common.dal.dataobject.StoneTypeDo;
 import org.apache.ibatis.annotations.*;
 
@@ -49,4 +50,7 @@ public interface StoneTypeDao {
 
     @Update("update stone_type set status=#{status} where id=#{id}")
     void updateStatus(int id, int status);
+
+    @Select("select * from stone_type where status=#{status}")
+    List<StoneDo> selectByStatus(int status);
 }

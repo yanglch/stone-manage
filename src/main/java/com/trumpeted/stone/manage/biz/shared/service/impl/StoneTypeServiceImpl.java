@@ -10,6 +10,7 @@ import com.trumpeted.stone.manage.biz.shared.convert.CommonConvert;
 import com.trumpeted.stone.manage.biz.shared.service.StoneTypeService;
 import com.trumpeted.stone.manage.biz.shared.vo.StoneTypeVo;
 import com.trumpeted.stone.manage.common.dal.dao.StoneTypeDao;
+import com.trumpeted.stone.manage.common.dal.dataobject.StoneDo;
 import com.trumpeted.stone.manage.common.dal.dataobject.StoneTypeDo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -85,5 +86,11 @@ public class StoneTypeServiceImpl implements StoneTypeService {
             status = StoneTypeConstant.Stone_TYPE_ENALE;
         }
         stoneTypeDao.updateStatus(id, status);
+    }
+
+    @Override
+    public List<StoneDo> findEnable() {
+
+        return stoneTypeDao.selectByStatus(StoneTypeConstant.Stone_TYPE_ENALE);
     }
 }

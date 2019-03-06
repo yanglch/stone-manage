@@ -46,10 +46,10 @@ public class StoneServiceImpl implements StoneService {
     }
 
     @Override
-    public List<StoneVo> selectAll() {
+    public List<StoneDo> selectAll() {
 
 
-        return CommonConvert.toVoList(stoneDao.selectAll(), StoneVo.class);
+        return stoneDao.selectAll();
     }
 
 

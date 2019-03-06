@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.util.List;
+
 /**
  *
  * @author ylc
@@ -27,5 +29,10 @@ public class UserServiceImpl implements UserService {
     public UserVo getUser(String loginName) {
         Assert.hasText(loginName, "login name can not empty");
         return CommonConvert.toVo(sysUserDao.findByLoginName(loginName), UserVo.class);
+    }
+
+    @Override
+    public List<UserVo> getUserAll() {
+        return CommonConvert.toVoList(sysUserDao.findByPage(0, 100), UserVo.class);
     }
 }

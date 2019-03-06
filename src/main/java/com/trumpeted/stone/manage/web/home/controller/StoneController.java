@@ -44,7 +44,7 @@ public class StoneController {
         return null;
     }
 
-    @GetMapping("/view.htm")
+    @GetMapping("view.htm")
     public String view(){
 
 

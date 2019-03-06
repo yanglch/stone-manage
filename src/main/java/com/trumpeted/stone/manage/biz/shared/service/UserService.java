@@ -6,6 +6,8 @@ package com.trumpeted.stone.manage.biz.shared.service;
 
 import com.trumpeted.stone.manage.biz.shared.vo.UserVo;
 
+import java.util.List;
+
 /**
  *
  * @author ylc
@@ -19,5 +21,8 @@ public interface UserService {
      * @return
      */
     UserVo getUser(String loginName);
+
+
+    List<UserVo> getUserAll();
 
 }

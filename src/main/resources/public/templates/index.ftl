@@ -17,9 +17,11 @@
         <div class="container-flude flude-cc" id="a">
             <div class="row user-setting">
                 <#include "common/menu/menu.ftl"/>
-
                 <div class="col-xs-10" id="userPanel">
                     <#include "${viewName}.ftl"/>
+                    <#--<iframe id="myIframe" src="${formView}">-->
+
+                    <#--</iframe>-->
                 </div>
             </div>
         </div>

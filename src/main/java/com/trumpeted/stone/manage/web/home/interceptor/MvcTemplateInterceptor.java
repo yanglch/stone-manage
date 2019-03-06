@@ -26,6 +26,7 @@ public class MvcTemplateInterceptor implements HandlerInterceptor {
             return;
         }
         request.setAttribute("viewName", modelAndView.getViewName());
+        request.setAttribute("formView", request.getRequestURI());
         modelAndView.setViewName("index");
     }
 }

@@ -8,6 +8,7 @@ import com.trumpeted.stone.manage.biz.shared.service.UserService;
 import com.trumpeted.stone.manage.web.home.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,7 +52,8 @@ public class UserController {
     }
 
     @GetMapping("view.htm")
-    public String view(){
+    public String view(Model model){
+        model.addAttribute("userList", userService.getUserAll());
         return "sys/user/userList";
     }
 

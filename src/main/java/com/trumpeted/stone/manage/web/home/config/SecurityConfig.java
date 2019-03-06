@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/stone/view.htm", true)
+                .defaultSuccessUrl("/stone/type/view.htm", true)
                 .permitAll()
                 .and()
                 .csrf()

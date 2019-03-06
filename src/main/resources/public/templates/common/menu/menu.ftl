@@ -17,7 +17,7 @@
 </script>
 <div class="col-xs-2 user-wrap">
     <ul class="list-group">
-        <li class="list-group-item" name="userSet" id="product-type-set">
+        <li class="list-group-item ${(formView == "/stone/type/view.htm")?string('active','')}" name="userSet" id="product-type-set">
             <i class="glyphicon glyphicon-lock"></i> &nbsp;石材类型管理
         </li>
         <li class="list-group-item ${(formView == "/stone/view.htm")?string('active','')}" name="userPic" id="product-set">

@@ -23,9 +23,9 @@
         <li class="list-group-item ${(formView == "/stone/view.htm")?string('active','')}" name="userPic" id="product-set">
             <i class="glyphicon glyphicon-facetime-video"></i> &nbsp;石材管理
         </li>
-        <li class="list-group-item" name="userInfo" id="user-set">
-            <i class="glyphicon glyphicon-user"></i> &nbsp;客户管理
-        </li>
+        <#--<li class="list-group-item" name="userInfo" id="user-set">-->
+            <#--<i class="glyphicon glyphicon-user"></i> &nbsp;客户管理-->
+        <#--</li>-->
         <li class="list-group-item ${(formView == "/user/view.htm")?string('active','')}" name="adminSet" id="manager-set">
             <i class="glyphicon glyphicon-globe"></i> &nbsp;系统用户管理
         </li>

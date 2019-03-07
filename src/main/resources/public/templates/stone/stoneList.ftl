@@ -40,7 +40,7 @@
                 file:{
                     validators:{
                         notEmpty:{
-                            message:'请选择商品图片'
+                            message:'请选择石材图片'
                         }
                     }
                 },
@@ -167,7 +167,7 @@
                 <tr class="text-danger">
                     <th class="text-center">编号</th>
                     <th class="text-center">图片</th>
-                    <th class="text-center">商品</th>
+                    <th class="text-center">石材</th>
                     <th class="text-center">产品类型</th>
                     <th class="text-center">状态</th>
                     <th class="text-center">操作</th>
@@ -194,7 +194,7 @@
     </div>
 </div>
 
-<!-- 添加商品 start -->
+<!-- 添加石材 start -->
 <div class="modal fade" tabindex="-1" id="Product">
     <!-- 窗口声明 -->
     <div class="modal-dialog modal-lg">
@@ -247,9 +247,9 @@
         </form>
     </div>
 </div>
-<!-- 添加商品 end -->
+<!-- 添加石材 end -->
 
-<!-- 修改商品 start -->
+<!-- 修改石材 start -->
 <div class="modal fade" tabindex="-1" id="myProduct">
     <!-- 窗口声明 -->
     <div class="modal-dialog modal-lg">
@@ -259,25 +259,25 @@
                 <!-- 头部、主体、脚注 -->
                 <div class="modal-header">
                     <button class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">修改商品</h4>
+                    <h4 class="modal-title">修改石材</h4>
                 </div>
                 <div class="modal-body text-center row">
                     <input type="hidden" id="editId"/>
                     <div class="col-sm-8">
                         <div class="form-group">
-                            <label for="pro-num" class="col-sm-4 control-label">商品编号：</label>
+                            <label for="pro-num" class="col-sm-4 control-label">石材编号：</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" id="pro-num" name="id" readonly>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="pro-name" class="col-sm-4 control-label">商品名称：</label>
+                            <label for="pro-name" class="col-sm-4 control-label">石材名称：</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" id="pro-name" name="stoneName">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="pro-image" class="col-sm-4 control-label">商品图片：</label>
+                            <label for="pro-image" class="col-sm-4 control-label">石材图片：</label>
                             <div class="col-sm-8">
                                 <a class="file">
                                     选择文件 <input type="file" name="file" id="file2">
@@ -285,7 +285,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="product-type" class="col-sm-4 control-label">商品类型：</label>
+                            <label for="product-type" class="col-sm-4 control-label">石材类型：</label>
                             <div class="col-sm-8">
                                 <select class="form-control" id="pro-TypeId" name="stoneTypeId">
                                     <option value="">--请选择--</option>

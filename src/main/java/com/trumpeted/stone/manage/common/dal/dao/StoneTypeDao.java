@@ -8,6 +8,7 @@ import com.trumpeted.stone.manage.biz.shared.vo.StoneTypeVo;
 import com.trumpeted.stone.manage.common.dal.dataobject.StoneDo;
 import com.trumpeted.stone.manage.common.dal.dataobject.StoneTypeDo;
 import org.apache.ibatis.annotations.*;
+import org.springframework.security.core.parameters.P;
 
 import java.util.List;
 
@@ -46,10 +47,10 @@ public interface StoneTypeDao {
     StoneTypeDo selectById(int id);
 
     @Update("update stone_type set name=#{name} where id=#{id}")
-    void updateName(int id, String name);
+    void updateName(@Param("id") int id, @Param("name") String name);
 
     @Update("update stone_type set status=#{status} where id=#{id}")
-    void updateStatus(int id, int status);
+    void updateStatus(@Param("id") int id, @Param("status") int status);
 
     @Select("select * from stone_type where status=#{status}")
     List<StoneDo> selectByStatus(int status);

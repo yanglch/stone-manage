@@ -14,28 +14,28 @@
     <script src="/js/bootstrap-paginator.js"></script>
     <script>
         $(function () {
-            $('#pagination').bootstrapPaginator({
-                bootstrapMajorVersion:3,
-                currentPage:${pageInfo.pageNum},
-                totalPages:${pageInfo.pages},
-                pageUrl:function(type,page, current){
-                    return '/stone/view.htm?pageNum='+page;
-                },
-                itemTexts: function (type, page, current) {
-                    switch (type) {
-                        case "first":
-                            return "首页";
-                        case "prev":
-                            return "上一页";
-                        case "next":
-                            return "下一页";
-                        case "last":
-                            return "末页";
-                        case "page":
-                            return page;
-                    }
-                }
-            });
+            <#--$('#pagination').bootstrapPaginator({-->
+                <#--bootstrapMajorVersion:3,-->
+                <#--currentPage:${pageInfo.pageNum},-->
+                <#--totalPages:${pageInfo.pages},-->
+                <#--pageUrl:function(type,page, current){-->
+                    <#--return '/stone/view.htm?pageNum='+page;-->
+                <#--},-->
+                <#--itemTexts: function (type, page, current) {-->
+                    <#--switch (type) {-->
+                        <#--case "first":-->
+                            <#--return "首页";-->
+                        <#--case "prev":-->
+                            <#--return "上一页";-->
+                        <#--case "next":-->
+                            <#--return "下一页";-->
+                        <#--case "last":-->
+                            <#--return "末页";-->
+                        <#--case "page":-->
+                            <#--return page;-->
+                    <#--}-->
+                <#--}-->
+            <#--});-->
         });
         function addstoneType() {
             $.post(
@@ -57,7 +57,7 @@
             );
         }
 
-        //商品显示
+        //石材显示
         function showStoneType(id) {
             $.post(
                 '/stone/type/findById',
@@ -121,7 +121,7 @@
         <h3 class="panel-title">石材类型管理</h3>
     </div>
     <div class="panel-body">
-        <input type="button" value="添加商品类型" class="btn btn-primary" id="doAddProTpye">
+        <input type="button" value="添加石材类型" class="btn btn-primary" id="doAddProTpye">
         <br>
         <br>
         <div class="show-list text-center">
@@ -173,7 +173,7 @@
             <!-- 头部、主体、脚注 -->
             <div class="modal-header">
                 <button class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">添加商品类型</h4>
+                <h4 class="modal-title">添加石材类型</h4>
             </div>
             <div class="modal-body text-center">
                 <div class="row text-right">
@@ -191,9 +191,9 @@
         </div>
     </div>
 </div>
-<!-- 添加商品类型 end -->
+<!-- 添加石材类型 end -->
 
-<!-- 修改商品类型 start -->
+<!-- 修改石材类型 start -->
 <div class="modal fade" tabindex="-1" id="myProductType">
     <!-- 窗口声明 -->
     <div class="modal-dialog modal-lg">
@@ -202,7 +202,7 @@
             <!-- 头部、主体、脚注 -->
             <div class="modal-header">
                 <button class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">修改商品类型</h4>
+                <h4 class="modal-title">修改石材类型</h4>
             </div>
             <div class="modal-body text-center">
                 <div class="row text-right">
@@ -226,7 +226,7 @@
         </div>
     </div>
 </div>
-<!-- 修改商品类型 end -->
+<!-- 修改石材类型 end -->
 </body>
 
 </html>

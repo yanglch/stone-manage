@@ -15,6 +15,7 @@ import com.trumpeted.stone.manage.biz.shared.vo.StoneTypeVo;
 import com.trumpeted.stone.manage.common.dal.dataobject.StoneTypeDo;
 import com.trumpeted.stone.manage.utils.ResponseResult;
 import com.trumpeted.stone.manage.web.home.model.StoneTypeModel;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,6 +34,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/stone/type/")
+@Slf4j
 public class StoneTypeController<commonResult> {
 
     @Autowired
@@ -57,7 +59,7 @@ public class StoneTypeController<commonResult> {
         } catch (Exception e) {
             result.setStatus(ResponseStatusConstant.STONE_STATUS_FAIL);
             result.setMessage(e.getMessage());
-            e.printStackTrace();
+            log.error("add stone type is fail", e);
         }
 
         return result;

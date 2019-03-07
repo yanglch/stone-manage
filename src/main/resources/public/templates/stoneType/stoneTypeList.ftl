@@ -11,7 +11,32 @@
     <script src="/js/bootstrap.js"></script>
     <script src="/js/userSetting.js"></script>
     <script src="/layer/layer.js"></script>
+    <script src="/js/bootstrap-paginator.js"></script>
     <script>
+        $(function () {
+            $('#pagination').bootstrapPaginator({
+                bootstrapMajorVersion:3,
+                currentPage:${pageInfo.pageNum},
+                totalPages:${pageInfo.pages},
+                pageUrl:function(type,page, current){
+                    return '/stone/view.htm?pageNum='+page;
+                },
+                itemTexts: function (type, page, current) {
+                    switch (type) {
+                        case "first":
+                            return "首页";
+                        case "prev":
+                            return "上一页";
+                        case "next":
+                            return "下一页";
+                        case "last":
+                            return "末页";
+                        case "page":
+                            return page;
+                    }
+                }
+            });
+        });
         function addstoneType() {
             $.post(
                 '/stone/type/insert',
@@ -99,7 +124,7 @@
         <input type="button" value="添加商品类型" class="btn btn-primary" id="doAddProTpye">
         <br>
         <br>
-        <div class="show-list">
+        <div class="show-list text-center">
             <table class="table table-bordered table-hover" style='text-align: center;'>
                 <thead>
                 <tr class="text-danger">
@@ -110,7 +135,7 @@
                 </tr>
                 </thead>
                 <tbody id="tb">
-                <#list stoneTypeVos as stoneType >
+                <#list pageInfo.list as stoneType >
                     <tr>
                         <td>${stoneType.id}</td>
                         <td>${stoneType.name}</td>
@@ -134,6 +159,7 @@
                 </#list>
                 </tbody>
             </table>
+            <ul id="pagination"></ul>
         </div>
     </div>
 </div>

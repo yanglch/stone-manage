@@ -4,7 +4,10 @@
  */
 package com.trumpeted.stone.manage.web.home.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.trumpeted.stone.manage.biz.shared.Exception.StoneTypeException;
+import com.trumpeted.stone.manage.biz.shared.constant.PaginationConstant;
 import com.trumpeted.stone.manage.biz.shared.constant.ResponseStatusConstant;
 import com.trumpeted.stone.manage.biz.shared.convert.CommonConvert;
 import com.trumpeted.stone.manage.biz.shared.service.StoneTypeService;
@@ -15,6 +18,7 @@ import com.trumpeted.stone.manage.web.home.model.StoneTypeModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,9 +72,16 @@ public class StoneTypeController<commonResult> {
     }
 
     @GetMapping("/view.htm")
-    public String view(Model model){
+    public String view(Integer pagNum,Model model){
+        if(ObjectUtils.isEmpty(pagNum)){
+            pagNum= PaginationConstant.PAGE_NUM;
+        }
+        PageHelper.startPage(pagNum,PaginationConstant.PAGE_SIZE);
         List<StoneTypeVo> stoneTypeVos = stoneTypeService.findAll();
-        model.addAttribute("stoneTypeVos",stoneTypeVos);
+
+        PageInfo<StoneTypeVo> pageInfo = new PageInfo<>(stoneTypeVos);
+        model.addAttribute("pageInfo",pageInfo);
+
         return "stoneType/stoneTypeList";
     }
 

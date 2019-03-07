@@ -1,15 +1,14 @@
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-<link rel="stylesheet" href="/css/bootstrap.css"/>
-<link rel="stylesheet" href="/css/index.css"/>
-<link rel="stylesheet" href="/css/bootstrapValidator.min.css"/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet"  href="/css/bootstrap.css" />
+<link rel="stylesheet"  href="/css/index.css" />
+<link rel="stylesheet"  href="/css/bootstrapValidator.min.css" />
 <script src="/js/jquery.js"></script>
 <script src="/js/bootstrap.js"></script>
 <script src="/js/userSetting.js"></script>
 <script src="/js/bootstrapValidator.min.js"></script>
 <script src="/layer/layer.js"></script>
-<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8"/>
 <script>
     $(function () {
 
@@ -26,29 +25,29 @@
                 invalid: 'glyphicon glyphicon-remove',
                 validating: 'glyphicon glyphicon-refresh'
             },
-            fields: {
-                name: {
-                    validators: {
-                        notEmpty: {
-                            message: '商品名称不能为空'
+            fields:{
+                name:{
+                    validators:{
+                        notEmpty:{
+                            message:'石材名称不能为空'
                         },
-                        remote: {
-                            type: 'post',
-                            url: '/stone/checkName'
+                        remote:{
+                            type:'post',
+                            url:'/stone/checkName'
                         }
                     }
                 },
-                /*  file:{
-                      validators:{
-                          notEmpty:{
-                              message:'请选择商品图片'
-                          }
-                      }
-                  },*/
-                stoneTypeId: {
-                    validators: {
-                        notEmpty: {
-                            message: '请选择石材类型'
+                file:{
+                    validators:{
+                        notEmpty:{
+                            message:'请选择商品图片'
+                        }
+                    }
+                },
+                stoneTypeId:{
+                    validators:{
+                        notEmpty:{
+                            message:'请选择石材类型'
                         }
                     }
                 }

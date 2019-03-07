@@ -35,7 +35,7 @@ public interface StoneDao {
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(@Param("stone") StoneDo stoneDo);
 
-    @Update("update stone set name=#{stone.name},type_id=#{stone.typeId}, gmt_modifier=now() where id = #{stone.id}")
+    @Update("update stone set name=#{stone.name},type_id=#{stone.typeId}, image=#{stone.image},gmt_modifier=now() where id = #{stone.id}")
     int updateById(@Param("stone") StoneDo stoneDo);
 
     @Select("select * from stone where id=#{id}")

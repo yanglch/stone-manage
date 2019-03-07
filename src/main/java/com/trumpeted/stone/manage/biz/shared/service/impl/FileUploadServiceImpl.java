@@ -17,7 +17,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotNull;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.UUID;
 
 /**
@@ -55,6 +58,28 @@ public class FileUploadServiceImpl implements FileUploadService {
             log.error("upload file is fail", e);
         }
         return result;
+    }
+
+    @Override
+    public void flushFile(String catalog, OutputStream out) {
+        InputStream in = null;
+        try {
+            in = new FileInputStream(new File( uploadCatalog + catalog));
+            byte[] data = new byte[1024];
+            while (in.read(data) != -1){
+                out.write(data);
+            }
+            out.flush();
+            out.close();
+        } catch (IOException e) {
+            log.warn("download file is error", e);
+        }finally {
+            if(in != null){
+                try {
+                    in.close();
+                } catch (IOException e) {}
+            }
+        }
     }
 
     public String getUploadCatalog() {

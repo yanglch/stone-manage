@@ -21,7 +21,6 @@ public class StoneDto implements Serializable {
 
     private String image;
 
-    private CommonsMultipartFile file;
-    private Integer stoneTypeId;
+    private Long typeId;
 
 }

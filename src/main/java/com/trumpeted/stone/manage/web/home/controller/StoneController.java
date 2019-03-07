@@ -49,20 +49,22 @@ public class StoneController {
 
     @PostMapping("add")
     @ResponseBody
-    public ResponseResult add(StoneDto stoneDto, @RequestParam("file")MultipartFile file){
+    public ResponseResult add(StoneDto stoneDto, @RequestParam(value = "file", required = false)MultipartFile file){
         FileUploadResult upload = fileUploadService.upload(file);
         String fileCatalog = upload.getFileCatalog();
         stoneDto.setImage(fileCatalog);
         stoneService.add(stoneDto);
-
         return ResponseResult.success();
     }
 
     @PostMapping("update")
     @ResponseBody
-    public Object update(StoneModel stoneModel){
-        stoneService.update(CommonConvert.toVo(stoneModel, StoneVo.class));
-        return null;
+    public Object update(StoneDto stoneDto, @RequestParam(value = "file2", required = false)MultipartFile file){
+        FileUploadResult upload = fileUploadService.upload(file);
+        String fileCatalog = upload.getFileCatalog();
+        stoneDto.setImage(fileCatalog);
+        stoneService.update(CommonConvert.toVo(stoneDto, StoneVo.class));
+        return ResponseResult.success();
     }
 
 

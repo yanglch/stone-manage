@@ -7,6 +7,8 @@ package com.trumpeted.stone.manage.biz.shared.service;
 import com.trumpeted.stone.manage.biz.shared.vo.FileUploadResult;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.OutputStream;
+
 /**
  *
  * @author ylc
@@ -16,4 +18,6 @@ public interface FileUploadService {
 
 
     FileUploadResult upload(MultipartFile file);
+
+    void flushFile(String catalog, OutputStream out);
 }

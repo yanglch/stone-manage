@@ -23,7 +23,7 @@
                 name:{
                     validators:{
                         notEmpty:{
-                            message:'商品名称不能为空'
+                            message:'石材名称不能为空'
                         },
                         remote:{
                             type:'post',
@@ -31,13 +31,13 @@
                         }
                     }
                 },
-              /*  file:{
+                file:{
                     validators:{
                         notEmpty:{
                             message:'请选择商品图片'
                         }
                     }
-                },*/
+                },
                 stoneTypeId:{
                     validators:{
                         notEmpty:{
@@ -122,6 +122,7 @@
                     <tr>
                         <td>${stone.id}</td>
                         <td>${stone.name}</td>
+                        <td>${stone.stoneTypeDo.name}</td>
                        <#-- <td>${stone.stoneTypeDo.name}</td>-->
                         <td>
                             有效

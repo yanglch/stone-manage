@@ -93,7 +93,7 @@ public class StoneController {
             map.put("valid",true);
         }else {
             map.put("valid",false);
-            map.put("message","该石材"+name+"已存在");
+            map.put("message","该石材类型《"+name+"》已存在");
         }
         return map;
     }

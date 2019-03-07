@@ -6,6 +6,7 @@ package com.trumpeted.stone.manage.biz.shared.service;
 
 import com.trumpeted.stone.manage.biz.shared.vo.StoneVo;
 import com.trumpeted.stone.manage.common.dal.dataobject.StoneDo;
+import com.trumpeted.stone.manage.web.home.Dto.StoneDto;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public interface StoneService {
     /**
      * 添加产品
      */
-    void add(StoneVo stoneVo);
+    void add(StoneDto stoneDto);
 
     /**
      * 修改产品
@@ -40,4 +41,7 @@ public interface StoneService {
     List<StoneDo> selectAll();
 
     StoneDo findById(int id);
+
+    boolean checkName(String name);
+
 }

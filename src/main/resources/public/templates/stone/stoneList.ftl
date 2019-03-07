@@ -8,35 +8,40 @@
 <script src="/js/bootstrap.js"></script>
 <script src="/js/userSetting.js"></script>
 <script src="/js/bootstrapValidator.min.js"></script>
+<script src="/layer/layer.js"></script>
 <script>
     $(function () {
 
         //表单校验
-        $('#frmAddStone').bootstrapValidator({
+        $('#frmAddProduct').bootstrapValidator({
             feedbackIcons: {
                 valid: 'glyphicon glyphicon-ok',
                 invalid: 'glyphicon glyphicon-remove',
                 validating: 'glyphicon glyphicon-refresh'
             },
-            fields: {
-                name: {
-                    validators: {
-                        notEmpty: {
-                            message: '石材名称不能为空'
+            fields:{
+                name:{
+                    validators:{
+                        notEmpty:{
+                            message:'商品名称不能为空'
+                        },
+                        remote:{
+                            type:'post',
+                            url:'/stone/checkName'
                         }
                     }
                 },
-                file:{
-                    validators: {
-                        notEmpty: {
-                            message: '请选择照片'
+              /*  file:{
+                    validators:{
+                        notEmpty:{
+                            message:'请选择商品图片'
                         }
                     }
-                },
+                },*/
                 stoneTypeId:{
-                    validators: {
-                        notEmpty: {
-                            message: '请选择石材类型'
+                    validators:{
+                        notEmpty:{
+                            message:'请选择石材类型'
                         }
                     }
                 }
@@ -58,6 +63,39 @@
             }
         );
     }
+    
+    /*function addStone() {
+        var bootstrapValidator = $("#frmAddProduct").data('bootstrapValidator');
+        bootstrapValidator.validate();
+        if(!bootstrapValidator.isValid()){
+            return
+        }
+
+        var params = $('.form-horizontal').serialize();
+        params.file =  new FormData($('#product-image')[0]);
+
+        $.ajax({
+            url: '/stone/add',
+            data: params,
+            processData: false,
+            contentType: false,
+            type: "post",
+            cache: false,
+            success: function (result) {
+                if (result.status == 1) {
+                    layer.msg('添加成功', {
+                        time: 2000
+                    }, function () {
+                        window.location.href = "/stone/view.htm"
+                    })
+                } else {
+                    layer.msg('添加失败', {
+                        time: 2000
+                    })
+                }
+            }
+        });
+}*/
     
 </script>
 <div class="panel panel-default" id="userPic">
@@ -84,7 +122,7 @@
                     <tr>
                         <td>${stone.id}</td>
                         <td>${stone.name}</td>
-                        <td>${stone.stoneTypeDo.name}</td>
+                       <#-- <td>${stone.stoneTypeDo.name}</td>-->
                         <td>
                             有效
                         </td>
@@ -104,7 +142,7 @@
     <!-- 窗口声明 -->
     <div class="modal-dialog modal-lg">
         <!-- 内容声明 -->
-        <form action="/stone/add" method="post" enctype="multipart/form-data" class="form-horizontal" id="frmAddStone">
+        <form action="/stone/add" method="post" class="form-horizontal" enctype="multipart/form-data" id="frmAddProduct">
             <div class="modal-content">
                 <!-- 头部、主体、脚注 -->
                 <div class="modal-header">
@@ -159,7 +197,7 @@
     <!-- 窗口声明 -->
     <div class="modal-dialog modal-lg">
         <!-- 内容声明 -->
-        <form action="" class="form-horizontal">
+        <form action="/stone/modify" method="post"enctype="multipart/form-data" class="form-horizontal">
             <div class="modal-content">
                 <!-- 头部、主体、脚注 -->
                 <div class="modal-header">
@@ -171,13 +209,13 @@
                         <div class="form-group">
                             <label for="pro-num" class="col-sm-4 control-label">商品编号：</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="pro-num" readonly>
+                                <input type="text" class="form-control" id="pro-num" name="id" readonly>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="pro-name" class="col-sm-4 control-label">商品名称：</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="pro-name">
+                                <input type="text" class="form-control" id="pro-name" name="name">
                             </div>
                         </div>
                         <div class="form-group">
@@ -191,7 +229,7 @@
                         <div class="form-group">
                             <label for="product-type" class="col-sm-4 control-label">商品类型：</label>
                             <div class="col-sm-8">
-                                <select class="form-control" id="pro-TypeId">
+                                <select class="form-control" id="pro-TypeId" name="stoneTypeId">
                                     <option value="">--请选择--</option>
                                     <#list StoneTypeDos as stoneTypeDo>
                                         <option value="${stoneTypeDo.id}">${stoneTypeDo.name}</option>
@@ -206,7 +244,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary updatePro">修改</button>
+                    <button class="btn btn-primary updatePro" type="submit">修改</button>
                     <button class="btn btn-primary cancel" data-dismiss="modal">取消</button>
                 </div>
             </div>

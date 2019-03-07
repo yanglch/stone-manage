@@ -21,4 +21,10 @@
     left join stone_type sp
     on s.type_id=sp.id
 </select>
+    <!--<insert id="insert" parameterType="StoneDo">
+        insert into stone
+        (name,image,type_id,gmt_modifier,gmt_created)
+        values
+        (#{name},#{image},#{typeId},#{gmtModifier},#{gmtCreated})
+    </insert>-->
 </mapper>

@@ -30,8 +30,8 @@ public interface StoneDao {
     @Select("select count(1) from stone")
     long count();
 
-    @Insert("insert into stone(name,type_id, gmt_modifier, gmt_created)"
-            + " values(#{stone.name},#(stone.typeId), #{stone.typeCode}, now(), now())")
+    @Insert("insert into stone(name,image,type_id, gmt_modifier, gmt_created)"
+            + " values(#{stone.name},#{stone.image},#{stone.typeId}, now(), now())")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(@Param("stone") StoneDo stoneDo);
 
@@ -40,4 +40,10 @@ public interface StoneDao {
 
     @Select("select * from stone where id=#{id}")
     StoneDo selectById(int id);
+
+    @Select("select * from stone where name=#{name}")
+    StoneDo selectByName(String name);
+
+    @Update("update stone set name=#{name},image=#{image},type_id=#{typeId}, where id=#{id}")
+    void update(StoneDo stoneDo);
 }

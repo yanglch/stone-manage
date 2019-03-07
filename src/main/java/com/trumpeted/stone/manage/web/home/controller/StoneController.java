@@ -5,19 +5,24 @@
 package com.trumpeted.stone.manage.web.home.controller;
 
 import com.trumpeted.stone.manage.biz.shared.convert.CommonConvert;
+import com.trumpeted.stone.manage.biz.shared.service.FileUploadService;
 import com.trumpeted.stone.manage.biz.shared.service.StoneService;
 import com.trumpeted.stone.manage.biz.shared.service.StoneTypeService;
+import com.trumpeted.stone.manage.biz.shared.vo.FileUploadResult;
 import com.trumpeted.stone.manage.biz.shared.vo.StoneVo;
 import com.trumpeted.stone.manage.common.dal.dataobject.StoneDo;
 import com.trumpeted.stone.manage.utils.ResponseResult;
+import com.trumpeted.stone.manage.web.home.Dto.StoneDto;
 import com.trumpeted.stone.manage.web.home.model.StoneModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -32,18 +37,25 @@ public class StoneController {
     private StoneService stoneService;
     @Autowired
     private StoneTypeService stoneTypeService;
+    @Autowired
+    private FileUploadService fileUploadService;
 
     @GetMapping("query/{code}")
     @ResponseBody
     public Object queryCode(@PathVariable String code){
+
         return stoneService.queryByTypeCode(code);
     }
 
-    @PostMapping("insert")
+    @PostMapping("add")
     @ResponseBody
-    public Object add(StoneVo stoneVo, HttpSession session,Model model){
+    public ResponseResult add(StoneDto stoneDto, @RequestParam("file")MultipartFile file){
+        FileUploadResult upload = fileUploadService.upload(file);
+        String fileCatalog = upload.getFileCatalog();
+        stoneDto.setImage(fileCatalog);
+        stoneService.add(stoneDto);
 
-        return null;
+        return ResponseResult.success();
     }
 
     @PostMapping("update")
@@ -73,4 +85,17 @@ public class StoneController {
 
         return ResponseResult.success(byId);
     }
+    @PostMapping("checkName")
+    @ResponseBody
+    public Map<String,Object> checkName(String name){
+        HashMap<String, Object> map = new HashMap<>();
+        if (stoneService.checkName(name)){
+            map.put("valid",true);
+        }else {
+            map.put("valid",false);
+            map.put("message","该石材"+name+"已存在");
+        }
+        return map;
+    }
+
 }

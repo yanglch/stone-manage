@@ -40,5 +40,5 @@ server:
   port: 80
 stone:
   upload:
-    upload-catalog: I:/upload/
+    upload-catalog: D:/upload/
 

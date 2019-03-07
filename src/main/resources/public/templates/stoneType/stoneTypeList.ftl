@@ -57,6 +57,8 @@
                     if (result.status==1){
                         layer.msg(result.message,{
                             time:2000,
+                        },function () {
+                            window.location.href="/stone/type/view.htm"
                         })
                     }else {
                         layer.msg(result.message,{

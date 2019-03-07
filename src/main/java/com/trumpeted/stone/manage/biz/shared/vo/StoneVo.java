@@ -5,9 +5,9 @@
 package com.trumpeted.stone.manage.biz.shared.vo;
 
 import lombok.Data;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  *
@@ -22,9 +22,12 @@ public class StoneVo implements Serializable {
     private Long id;
 
     private String name;
+    private String image;
+    private Integer typeId;
+    private Date gmtModifier;
 
-    private CommonsMultipartFile file;
-    private Integer stoneTypeId;
+    private Date gmtCreated;
+
 
 
 }

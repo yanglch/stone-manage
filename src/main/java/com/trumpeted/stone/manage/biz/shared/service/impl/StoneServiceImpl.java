@@ -9,6 +9,7 @@ import com.trumpeted.stone.manage.biz.shared.service.StoneService;
 import com.trumpeted.stone.manage.biz.shared.vo.StoneVo;
 import com.trumpeted.stone.manage.common.dal.dao.StoneDao;
 import com.trumpeted.stone.manage.common.dal.dataobject.StoneDo;
+import com.trumpeted.stone.manage.web.home.Dto.StoneDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -32,10 +33,25 @@ public class StoneServiceImpl implements StoneService {
     }
 
     @Override
-    public void add(StoneVo stoneVo) {
-        Assert.notNull(stoneVo, "stoneVo cannot be null");
-        StoneDo stoneDo = CommonConvert.toDo(stoneVo, StoneDo.class);
+    public void add(StoneDto stoneDto) {
+        Assert.notNull(stoneDto, "stoneVo cannot be null");
+        StoneDo stoneDo = CommonConvert.toDo(stoneDto, StoneDo.class);
         stoneDao.insert(stoneDo);
+        /*StoneDo stoneDo = new StoneDo();
+        try {
+            PropertyUtils.copyProperties(stoneDo,stoneDto);
+
+            StoneTypeDo stoneTypeDo = new StoneTypeDo();
+
+            stoneTypeDo.setId(stoneDto.getId());
+
+            stoneDo.getTypeId(stoneTypeDo);
+
+            stoneDao.insert(stoneDo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
+
     }
 
     @Override
@@ -57,6 +73,18 @@ public class StoneServiceImpl implements StoneService {
 
         return stoneDao.selectById(id);
     }
+
+    @Override
+    public boolean checkName(String name) {
+
+        StoneDo stoneDo= stoneDao.selectByName(name);
+        if (stoneDo!=null){
+            return false;
+        }
+        return true;
+    }
+
+
 
 
 }
